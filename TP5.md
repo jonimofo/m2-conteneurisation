@@ -2,23 +2,14 @@
 
 - docker-compose.yml
 ```
-root@dockermachine:/home/gcp_poc_m2_gmail_com/TP2# cat docker-compose.yml
-
 version: "3.7"
 services:
   test:
-    image: alpine:3.13.2
+    image: jonimofo/imgtest:latest
     volumes:
       - $PWD/project:/project
-    working_dir: /project
-    entrypoint: sh -c 'echo Hello again  >> ./hello.txt && cat ./hello.txt'
-```
-
-- Fichier de base
-```
-root@dockermachine:/home/gcp_poc_m2_gmail_com/TP2# cat sharing/hello.txt
-
-Hello world
+    command: >
+         sh -c 'echo Deuxieme ligne >> ./hello.txt && cat ./hello.txt'
 ```
 
 - Lancement et constat du fichier modifié
@@ -29,6 +20,6 @@ Building with native build. Learn about native build in Compose here: https://do
 Starting tp2_test_1 ... done
 Attaching to tp2_test_1
 test_1  | Hello world
-test_1  | Hello again
+test_1  | Deuxieme ligne
 tp2_test_1 exited with code 0
 ```
