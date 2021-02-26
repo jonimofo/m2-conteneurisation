@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  envtest:
+    build: .
+    environment:
+      - MYSQL_DATABASE=value_dockercompose
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
